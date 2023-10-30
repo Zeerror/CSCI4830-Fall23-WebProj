@@ -23,7 +23,7 @@ public class MyServletHibernateDB extends HttpServlet {
       response.setContentType("text/html");
 
       // #1
-      UtilDB.createEmployees("user3", "33");
+      UtilDB.createEmployees("user3", "333");
       UtilDB.createEmployees("user4", "44");
       
       // #2
