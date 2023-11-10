@@ -1,58 +1,93 @@
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-header {
-    background-color:black;
-    color:white;
-    text-align:center;
-    padding:5px;	 
-}
-nav {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:300px;
-    width:100px;
-    float:left;
-    padding:5px;	      
-}
-section {
-    width:350px;
-    float:left;
-    padding:10px;	 	 
-}
-footer {
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
-    padding:5px;	 	 
-}
-</style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    nav {
+      background-color: #eeeeee;
+      width: 200px;
+      float: left;
+      padding: 10px;
+    }
+    nav a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: #333;
+    }
+    section {
+      width: 350px;
+      float: left;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    section h1 {
+      color: #333;
+    }
+    form {
+      margin-top: 10px;
+    }
+    form input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    form input[type="submit"] {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    form input[type="submit"]:hover {
+      background-color: #555;
+    }
+    nav a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      clear: both;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
 </head>
-
 <body>
 <header>
-<h1> Search Data (Hibernate) </h1>
+  <h1>Search Data (Hibernate)</h1>
 </header>
-
-<nav>
-<a href="/webproject/simpleInsertHB.html">Insert Data</a> <br>
-</nav>
-
 <section>
-	<h1>User Input</h1>
-	
-	<form action="SimpleSearchHB" method="POST">
-	
-		User Name: <input type="text" name="keyword"> <br />
-		
-		<input type="submit" value="Search" />
-	</form>
-
+  <h1>User Input</h1>
+  <form action="SimpleSearchHB" method="POST">
+    User Name: <input type="text" name="keyword"><br>
+    <input type="submit" value="Search">
+  </form>
+  <a href="/webproject/simpleInsertHB.html" style="margin-top: 10px;">Insert Data</a>
 </section>
-
 <footer>
-Copyright
+  Copyright
 </footer>
 </body>
 </html>

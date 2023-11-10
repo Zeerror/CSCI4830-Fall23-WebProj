@@ -29,7 +29,7 @@ public class MyServletHibernateDB extends HttpServlet {
       // #2
       retrieveDisplayData(response.getWriter());
    }
-
+   //This will Display out all of the Employees in the database
    void retrieveDisplayData(PrintWriter out) {
       String title = "Database Result";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + //
