@@ -15,5 +15,6 @@
 		<!-- True you will see sql in console -->
 		<property name="show_sql">false</property>
 		<mapping class="datamodel.Employee" />
+		<mapping class="datamodel.User" />
 	</session-factory>
 </hibernate-configuration>

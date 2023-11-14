@@ -22,7 +22,7 @@ public class SimpleLogin extends HttpServlet {
         String password = request.getParameter("password");
 
         // Perform authentication (you may need to modify this)
-        boolean isAuthenticated = authenticate(username, password);
+        boolean isAuthenticated = UtilDB.authenticate(username, password);
 
         if (isAuthenticated) {
             // Set user information in session
@@ -37,10 +37,6 @@ public class SimpleLogin extends HttpServlet {
         }
     }
 
-    private boolean authenticate(String username, String password) {
-        // Implement your authentication logic here
-        // You may use UtilDB or any other method to check credentials
-        // For learning purposes, you might hardcode some credentials
-        return "admin".equals(username) && "password123".equals(password);
-    }
+
+    
 }
