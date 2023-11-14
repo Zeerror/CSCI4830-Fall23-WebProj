@@ -5,54 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
+		html {height: 100%;}
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-image: url("https://drive.google.com/uc?export=view&id=1WNK8F-z3gbqvoPYpT-hOtVlE3oNAANSS");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: grey;
+            background-position: center;
             text-align: center;
-            padding: 50px;
+         	background-blend-mode: lighten;
+         	height: 80%;
         }
 
         h2 {
-            color: #333;
+			font-size: 52px;
+            color: rgb(31, 31, 31);
         }
 
         form {
-            width: 300px;
-            margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid #ccc;
+			position: relative;
+            min-width: 250px;
+            min-height: 300px;
+            width: 20%;
+            height: 65%;
+            margin: auto;
+            background-color: white;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        label {
+        h3 {
+            font-family: Arial, sans-serif;
+			text-align: left;
             display: block;
+            padding-left: 10px;
             margin-bottom: 10px;
+            margin-top: 20px;
+            text-align: bold;
             color: #333;
         }
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
+        input[type="text"] {
+            width: 90%;
             padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
+			margin: auto;
+			margin-bottom: 10px;
+			font-size: 14px;
         }
 
         input[type="submit"] {
+			position: absolute;
+			right: 12px;
+			bottom: 12px;
             background-color: #333;
             color: white;
+            width: 200px;
+            padding: 10px 30px;
             border: none;
-            padding: 10px 20px;
-            border-radius: 3px;
+            border-radius: 5px;
             cursor: pointer;
         }
 
         input[type="submit"]:hover {
             background-color: #555;
         }
+        
+        div {
+			position: static;
+			bottom: 0;
+		}
 
         p.error-message {
             color: red;
@@ -62,13 +85,15 @@
 <body>
     <h2>Reservation Login</h2>
     <form action="/webproject/SimpleLogin" method="POST">
-        <label for="username">Username:</label>
+        <h3 for="username">Username:</h3>
         <input type="text" id="username" name="username" required><br>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
+        <h3 for="password">Password:</h3>
+        <input type="text" id="password" name="password" required><br>
 
-        <input type="submit" value="Login">
+		<div>			
+	        <input type="submit" value="Login">
+		</div>
     </form>
 
 </body>
