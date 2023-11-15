@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
-		html {height: 100%;}
+        html {height: 100%;}
         body {
             font-family: Arial, sans-serif;
             background-image: url("https://drive.google.com/uc?export=view&id=1WNK8F-z3gbqvoPYpT-hOtVlE3oNAANSS");
@@ -14,17 +14,17 @@
             background-color: grey;
             background-position: center;
             text-align: center;
-         	background-blend-mode: lighten;
-         	height: 80%;
+            background-blend-mode: lighten;
+            height: 80%;
         }
 
         h2 {
-			font-size: 52px;
+            font-size: 52px;
             color: rgb(31, 31, 31);
         }
 
         form {
-			position: relative;
+            position: relative;
             min-width: 250px;
             min-height: 300px;
             width: 20%;
@@ -38,7 +38,7 @@
 
         h3 {
             font-family: Arial, sans-serif;
-			text-align: left;
+            text-align: left;
             display: block;
             padding-left: 10px;
             margin-bottom: 10px;
@@ -47,18 +47,19 @@
             color: #333;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="password"] {
             width: 90%;
-            padding: 10px;
-			margin: auto;
-			margin-bottom: 10px;
-			font-size: 14px;
+            padding: 10px; /* Adjust the padding as needed */
+            margin: auto;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
 
         input[type="submit"] {
-			position: absolute;
-			right: 12px;
-			bottom: 12px;
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
             background-color: #333;
             color: white;
             width: 200px;
@@ -71,11 +72,11 @@
         input[type="submit"]:hover {
             background-color: #555;
         }
-        
+
         div {
-			position: static;
-			bottom: 0;
-		}
+            position: static;
+            bottom: 0;
+        }
 
         p.error-message {
             color: red;
@@ -85,16 +86,13 @@
 <body>
     <h2>Reservation Login</h2>
     <form action="/webproject/SimpleLogin" method="POST">
-        <h3 for="username">Username:</h3>
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
 
-        <h3 for="password">Password:</h3>
-        <input type="text" id="password" name="password" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
 
-		<div>			
-	        <input type="submit" value="Login">
-		</div>
+        <input type="submit" value="Login">
     </form>
-
 </body>
 </html>

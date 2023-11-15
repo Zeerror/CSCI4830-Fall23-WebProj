@@ -104,10 +104,6 @@ public class UtilDB {
          session.close();
       }
    }
-   public static boolean authenticate(String username, String password) {
-	   return "admin".equals(username) && "password123".equals(password);
-	   
-	   
-   }
+
    
 }
