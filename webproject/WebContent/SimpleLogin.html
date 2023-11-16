@@ -16,15 +16,65 @@
             text-align: center;
             background-blend-mode: soft-light;
             height: 80%;
+            margin: 0px;
         }
-
+        .container {
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
         h2 {
             font-size: 52px;
             color: rgb(255, 255, 255);
             text-align: center;
             text-shadow: black 0px 0px 3px;
         }
-
+		header {
+			margin: 0px;
+            background: #ffffff;
+            color: #333;
+            padding-top: 12px;
+            min-height: 50px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #333;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+        header ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+        header li {
+            float: right;
+            padding-right: 24px;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+			padding-left: 24px;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #e8491d;
+            font-weight: bold;
+        }
         form {
             position: relative;
             min-width: 250px;
@@ -88,6 +138,18 @@
     </style>
 </head>
 <body>
+	<header>
+	    <div class="container">
+	        <div id="branding">
+	            <h1><span class="highlight">The Leftovers - Login</span></h1>
+	        </div>
+	        <nav>
+	            <ul>
+	                <li><a href="landingPage.html">Home</a></li>
+	            </ul>
+	        </nav>
+	    </div>
+	</header>
     <h2>Account Login</h2>
     <form action="/webproject/SimpleLogin" method="POST">
         <h3 for="username">Username:</h3>
