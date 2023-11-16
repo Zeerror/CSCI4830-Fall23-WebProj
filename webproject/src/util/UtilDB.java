@@ -89,12 +89,12 @@ public class UtilDB {
       return resultList;
    }
 
-   public static void createEmployees(String userName, String age) {
+   public static void createEmployees(String userName, String tableNumber, String date, String time) {
       Session session = getSessionFactory().openSession();
       Transaction tx = null;
       try {
          tx = session.beginTransaction();
-         session.save(new Employee(userName, Integer.valueOf(age)));
+         session.save(new Employee(userName, Integer.valueOf(tableNumber), date, time));
          tx.commit();
       } catch (HibernateException e) {
          if (tx != null)

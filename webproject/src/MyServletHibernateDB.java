@@ -23,8 +23,7 @@ public class MyServletHibernateDB extends HttpServlet {
       response.setContentType("text/html");
 
       // #1
-      UtilDB.createEmployees("user3", "33");
-      UtilDB.createEmployees("user4", "44");
+      
       
       // #2
       retrieveDisplayData(response.getWriter());
@@ -44,11 +43,15 @@ public class MyServletHibernateDB extends HttpServlet {
       for (Employee employee : listEmployees) {
          System.out.println("[DBG] " + employee.getId() + ", " //
                + employee.getName() + ", " //
-               + employee.getAge());
+               + employee.getTableNumber() + ", " //
+               + employee.getDate() + ", " //
+               + employee.getTime());
 
          out.println("<li>" + employee.getId() + ", " //
                + employee.getName() + ", " //
-               + employee.getAge() + "</li>");
+               + employee.getTableNumber() + ", " //
+               + employee.getDate() + ", " //
+               + employee.getTime() + "</li>");
       }
       out.println("</ul>");
       out.println("</body></html>");

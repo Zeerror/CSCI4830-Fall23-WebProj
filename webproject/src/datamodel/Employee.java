@@ -11,7 +11,9 @@ import javax.persistence.Table;
  CREATE TABLE employee (
   id INT NOT NULL AUTO_INCREMENT,    
   name VARCHAR(30) NOT NULL,   
-  age INT NOT NULL,    
+  tableNumber INT NOT NULL,
+  date VARCHAR(30) NOT NULL,
+  time VARCHAR(30) NOT NULL,
   PRIMARY KEY (id));
  */
 @Entity
@@ -26,21 +28,31 @@ public class Employee {
    @Column(name = "name")
    private String name;
 
-   @Column(name = "age")
-   private Integer age;
+   @Column(name = "tableNumber")
+   private Integer tableNumber;
+   
+   @Column(name = "date")
+   private String date;
+   
+   @Column(name = "time")
+   private String time;
 
    public Employee() {
    }
 
-   public Employee(Integer id, String name, Integer age) {
+   public Employee(Integer id, String name, Integer tableNumber, String date, String time) {
       this.id = id;
       this.name = name;
-      this.age = age;
+      this.tableNumber = tableNumber;
+      this.date = date;
+      this.time = time;
    }
 
-   public Employee(String name, int age) {
-      this.name = name;
-      this.age = age;
+   public Employee(String name, int tableNumber, String date, String time) {
+	   this.name = name;
+	   this.tableNumber = tableNumber;
+	   this.date = date;
+	   this.time = time;
    }
 
    public Integer getId() {
@@ -59,16 +71,32 @@ public class Employee {
       this.name = name;
    }
 
-   public Integer getAge() {
-      return age;
+   public Integer getTableNumber() {
+      return tableNumber;
    }
 
-   public void setAge(Integer age) {
-      this.age = age;
+   public void setTableNumber(Integer tableNumber) {
+      this.tableNumber = tableNumber;
    }
+   
+   public String getDate() {
+	      return date;
+	   }
+
+   public void setDate(String date) {
+	      this.date = date;
+	   }
+   
+   public String getTime() {
+	      return time;
+	   }
+
+   public void setTime(String time) {
+	      this.time = time;
+	   }
 
    @Override
    public String toString() {
-      return "Employee: " + this.id + ", " + this.name + ", " + this.age;
+      return "Employee: " + this.id + ", " + this.name + ", " + this.tableNumber + ", " + this.date + " ," + this.time;
    }
 }

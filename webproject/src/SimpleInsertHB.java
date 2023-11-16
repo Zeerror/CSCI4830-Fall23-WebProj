@@ -19,9 +19,11 @@ public class SimpleInsertHB extends HttpServlet implements Info {
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String userName = request.getParameter("userName").trim();
-      String age = request.getParameter("age").trim();
-      UtilDB.createEmployees(userName, age);
+      String name = request.getParameter("name").trim();
+      String tableNumber = request.getParameter("tableNumber").trim();
+      String date = request.getParameter("date").trim();
+      String time = request.getParameter("time").trim();
+      UtilDB.createEmployees(name, tableNumber, date, time);
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
@@ -33,8 +35,10 @@ public class SimpleInsertHB extends HttpServlet implements Info {
             "<body bgcolor=\"#f0f0f0\">\n" + //
             "<h1 align=\"center\">" + title + "</h1>\n");
       out.println("<ul>");
-      out.println("<li> Name: " + userName);
-      out.println("<li> Age: " + age);
+      out.println("<li> Name: " + name);
+      out.println("<li> Table Number: " + tableNumber);
+      out.println("<li> date: " + date);
+      out.println("<li> time: " + time);
       out.println("</ul>");
       out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
       out.println("</body></html>");

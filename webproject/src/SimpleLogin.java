@@ -33,7 +33,7 @@ public class SimpleLogin extends HttpServlet {
             response.sendRedirect("/webproject/simpleInsertHB.html");
         } else {
             // Display an error message on the login page
-            response.sendRedirect("/webproject/login.html?error=true");
+            response.sendRedirect("/webproject/SimpleLogin.html?error=true");
         }
     }
 
