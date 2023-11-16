@@ -25,7 +25,7 @@ public class SimpleLogin extends HttpServlet {
         
         
         // Perform authentication (you may need to modify this)
-        boolean isAuthenticated = authenticate(username, password);
+        boolean isAuthenticated = UtilDB.authenticate(username, password);
 
         if (isAuthenticated) {
             // Set user information in session
@@ -38,13 +38,5 @@ public class SimpleLogin extends HttpServlet {
             // Display an error message on the login page
             response.sendRedirect("/webproject/SimpleLogin.html");
         }
-    }
-    public static boolean authenticate(String username, String password) {
-	    // Replace this sample logic with actual validation from your data source (e.g., database)
-	    // For testing purposes, checking against hardcoded values
-	    return "admin".equals(username) && "password123".equals(password);
-	}
-
-
-    
+    }    
 }
