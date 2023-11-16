@@ -105,9 +105,21 @@ public class UtilDB {
       }
    }
    public static boolean authenticate(String username, String password) {
-	   return "admin".equals(username) && "password123".equals(password);
-	   
-	   
+	    // Authentication method for testing purposes, checking against hard-coded values
+	    return "admin".equals(username) && "password123".equals(password);
+	}
+   public static boolean authenticateUser(String username)
+   {
+	   boolean authenticated = false;
+	   Session session = getSessionFactory().openSession();
+	   Transaction tx = null;  // each process needs transaction and commit the changes in DB.
+	   try {
+		   tx = session.beginTransaction();
+		   //Query to check if user passed in parameter exists.
+	        Query query = session.createQuery(username);
+    	  }catch(HibernateException e){
+	    	//code for the catch  
+	      }
+      return authenticated;
    }
-   
 }
