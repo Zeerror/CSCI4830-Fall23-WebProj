@@ -14,13 +14,15 @@
             background-color: grey;
             background-position: center;
             text-align: center;
-            background-blend-mode: lighten;
+            background-blend-mode: soft-light;
             height: 80%;
         }
 
         h2 {
             font-size: 52px;
-            color: rgb(31, 31, 31);
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-shadow: black 0px 0px 3px;
         }
 
         form {
@@ -32,6 +34,7 @@
             margin: auto;
             background-color: white;
             padding: 20px;
+            border: 2px solid #e8491d;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -60,17 +63,18 @@
             position: absolute;
             right: 12px;
             bottom: 12px;
-            background-color: #333;
+            background-color: #e8491d;
             color: white;
-            width: 200px;
+            width: 150px;
             padding: 10px 30px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 14px;
         }
 
         input[type="submit"]:hover {
-            background-color: #555;
+            background-color: rgb(240, 138, 108);
         }
 
         div {
@@ -84,15 +88,15 @@
     </style>
 </head>
 <body>
-    <h2>Reservation Login</h2>
+    <h2>Account Login</h2>
     <form action="/webproject/SimpleLogin" method="POST">
-        <label for="username">Username:</label>
+        <h3 for="username">Username:</h3>
         <input type="text" id="username" name="username" required><br>
 
-        <label for="password">Password:</label>
+        <h3 for="password">Password:</h3>
         <input type="password" id="password" name="password" required><br>
 
-        <input type="submit" value="Login">
+        <input type="submit" value="LOGIN">
     </form>
 </body>
 </html>
