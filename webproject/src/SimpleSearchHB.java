@@ -50,11 +50,11 @@ public class SimpleSearchHB extends HttpServlet implements Info {
       for (Employee employee : listEmployees) {
          System.out.println("[DBG] " + employee.getId() + ", " //
                + employee.getName() + ", " //
-               + employee.getAge());
+               + employee.getTableNumber());
 
          out.println("<li>" + employee.getId() + ", " //
                + employee.getName() + ", " //
-               + employee.getAge() + "</li>");
+               + employee.getTableNumber() + "</li>");
       }
    }
 

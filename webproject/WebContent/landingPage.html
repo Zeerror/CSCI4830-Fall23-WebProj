@@ -10,10 +10,10 @@
 		}
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: url('https://drive.google.com/uc?export=view&id=1VLBL0nj6RcWMflVoPRAKxnXgiTehcgTS') no-repeat center center/cover;
             margin: 0;
             padding: 0;
-            height: 95%;
+            height: 100%;
         }
         .container {
             width: 100%;
@@ -72,8 +72,6 @@
             font-weight: bold;
         }
         .landing {
-            background: url('https://drive.google.com/uc?export=view&id=1Q-JdC7-593x0M6ZnjhGNMhdlmLpIXiKJ') no-repeat center center/cover;
-            height: 90%;
             text-align: center;
             color: #fff;
         }
@@ -109,8 +107,20 @@
             font-size: 24px;
 		}
 		
-		.button::hover {
-            background-color: rgb(240, 138, 108);
+		.containedButton {
+            background-color: transparent;
+            text-decoration: none;
+            color: white;
+            width: 125px;
+            padding: 10px 30px;
+            border: 3px solid #e8491d;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+		}
+		
+		.button:hover, .containedButton:hover {
+            background-color: rgb(237, 108, 71);
 		}
     </style>
 </head>
@@ -135,11 +145,10 @@
             <nav class="buttonCont">
 				<a class="button" href="/webproject/simpleInsertHB.html">Make a Reservation</a>
 			</nav>
+			<nav class="buttonCont">
+				<a class="containedButton" href="/webproject/SimpleLogin.html">Login</a>
+			</nav>
         </div>
     </section>
-
-    <footer>
-        <p>2023 The Leftovers</p>
-    </footer>
 </body>
 </html>

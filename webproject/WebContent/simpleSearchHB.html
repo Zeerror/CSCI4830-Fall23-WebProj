@@ -1,93 +1,161 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-    }
-    header {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    nav {
-      background-color: #eeeeee;
-      width: 200px;
-      float: left;
-      padding: 10px;
-    }
-    nav a {
-      display: block;
-      margin: 10px 0;
-      text-decoration: none;
-      color: #333;
-    }
-    section {
-      width: 350px;
-      float: left;
-      padding: 20px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    section h1 {
-      color: #333;
-    }
-    form {
-      margin-top: 10px;
-    }
-    form input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-    form input[type="submit"] {
-      background-color: #333;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    form input[type="submit"]:hover {
-      background-color: #555;
-    }
-    nav a {
-      display: block;
-      text-decoration: none;
-      color: #333;
-      margin-top: 10px;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      clear: both;
-      text-align: center;
-      padding: 10px;
-    }
-  </style>
-</head>
-<body>
-<header>
-  <h1>Search Data (Hibernate)</h1>
-</header>
-<section>
-  <h1>User Input</h1>
-  <form action="SimpleSearchHB" method="POST">
-    User Name: <input type="text" name="keyword"><br>
-    <input type="submit" value="Search">
-  </form>
-  <a href="/webproject/simpleInsertHB.html" style="margin-top: 10px;">Insert Data</a>
-</section>
-<footer>
-  Copyright
-</footer>
-</body>
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Find a Reservation</title>
+	    <style>
+	        html {height: 100%;}
+	        body {
+	            font-family: Arial, sans-serif;
+	            background-image: url("https://drive.google.com/uc?export=view&id=1CiuAGBxH0eygLTTMeNvUMK8rlrT3QfPT");
+	            background-size: 100%;
+	            background-color: grey;
+	            background-position: center;
+	            text-align: center;
+	            background-blend-mode: soft-light;
+	            height: 100%;
+	            margin: 0px;
+	        }
+	        h2 {
+	            font-size: 42px;
+	            color: rgb(255, 255, 255);
+	            text-align: center;
+	            text-shadow: black 0px 0px 3px;
+	        }
+	        .container {
+	            width: 100%;
+	            margin: auto;
+	            overflow: hidden;
+	        }
+			header {
+				margin: 0px;
+	            background: #ffffff;
+	            color: #333;
+	            padding-top: 12px;
+	            min-height: 50px;
+	            border-bottom: #e8491d 3px solid;
+	        }
+	        header a {
+	            color: #333;
+	            text-decoration: none;
+	            text-transform: uppercase;
+	            font-size: 16px;
+	            margin-right: 20px;
+	        }
+	        header ul {
+	            margin: 0;
+	            padding: 0;
+	            list-style: none;
+	            overflow: hidden;
+	        }
+	        header li {
+	            float: right;
+	            padding-right: 24px;
+	            display: inline;
+	            padding: 0 20px 0 20px;
+	        }
+	        header #branding {
+	            float: left;
+				padding-left: 24px;
+	        }
+	        header #branding h1 {
+	            margin: 0;
+	        }
+	        header nav {
+	            float: right;
+	            margin-top: 10px;
+	        }
+	        header .highlight {
+	            color: #e8491d;
+	            font-weight: bold;
+	        }
+	        header a:hover {
+	            color: #e8491d;
+	            font-weight: bold;
+	        }
+	        form {
+	            position: relative;
+	            min-width: 250px;
+	            min-height: 300px;
+	            width: 20%;
+	            height: 45%;
+	            margin: auto;
+	            background-color: white;
+	            padding: 20px;
+	            border: 2px solid #e8491d;
+	            border-radius: 5px;
+	            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	        }
+	
+	        h3 {
+	            font-family: Arial, sans-serif;
+	            text-align: left;
+	            display: block;
+	            padding-left: 10px;
+	            margin-bottom: 10px;
+	            margin-top: 20px;
+	            text-align: bold;
+	            color: #333;
+	        }
+	
+	        input[type="text"],
+	        input[type="password"] {
+	            width: 90%;
+	            padding: 10px; /* Adjust the padding as needed */
+	            margin: auto;
+	            margin-bottom: 10px;
+	            font-size: 14px;
+	        }
+	
+	        input[type="submit"] {
+	            position: absolute;
+	            right: 12px;
+	            bottom: 12px;
+	            background-color: #e8491d;
+	            color: white;
+	            width: 150px;
+	            padding: 10px 30px;
+	            border: none;
+	            border-radius: 5px;
+	            cursor: pointer;
+	            font-size: 14px;
+	        }
+	
+	        input[type="submit"]:hover {
+	            background-color: rgb(240, 138, 108);
+	        }
+	
+	        div {
+	            position: static;
+	            bottom: 0;
+	        }
+	
+	        p.error-message {
+	            color: red;
+	        }
+	    </style>
+	</head>
+	<body>
+		<header>
+		    <div class="container">
+		        <div id="branding">
+		            <h1><span class="highlight">The Leftovers - Find a Reservation</span></h1>
+		        </div>
+		        <nav>
+		            <ul>
+		                <li><a href="landingPage.html">Home</a></li>
+		                <li><a href="/webproject/simpleInsertHB.html">Make Reservation</a></li>
+		            </ul>
+		        </nav>
+		    </div>
+		</header>
+	    <h2>Search By Username</h2>
+	    <form action="SimpleInsertHB" method="POST">
+	        <h3 for="name">Name:</h3>
+	        <input type="text" id="name" name="keyword" required><br>
+	        
+	        <input type="submit" value="SEARCH">
+	    </form>
+	</body>
 </html>
