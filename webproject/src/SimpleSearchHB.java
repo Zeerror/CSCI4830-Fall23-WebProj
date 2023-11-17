@@ -49,12 +49,10 @@ public class SimpleSearchHB extends HttpServlet implements Info {
    void display(List<Employee> listEmployees, PrintWriter out) {
       for (Employee employee : listEmployees) {
          System.out.println("[DBG] " + employee.getId() + ", " //
-               + employee.getName() + ", " //
-               + employee.getTableNumber());
+               + employee.getName());
 
          out.println("<li>" + employee.getId() + ", " //
-               + employee.getName() + ", " //
-               + employee.getTableNumber() + "</li>");
+               + employee.getName() + "</li>");
       }
    }
 
