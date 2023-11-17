@@ -18,16 +18,16 @@
             height: 80%;
             margin: 0px;
         }
-        .container {
-            width: 100%;
-            margin: auto;
-            overflow: hidden;
-        }
         h2 {
             font-size: 52px;
             color: rgb(255, 255, 255);
             text-align: center;
             text-shadow: black 0px 0px 3px;
+        }
+        .container {
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
         }
 		header {
 			margin: 0px;
@@ -100,8 +100,7 @@
             color: #333;
         }
 
-        input[type="text"],
-        input[type="password"] {
+        input[type="text"] {
             width: 90%;
             padding: 10px; /* Adjust the padding as needed */
             margin: auto;
@@ -156,7 +155,7 @@
         <input type="text" id="username" name="username" required><br>
 
         <h3 for="password">Password:</h3>
-        <input type="password" id="password" name="password" required><br>
+        <input type="text" id="password" name="password" required><br>
 
         <input type="submit" value="LOGIN">
     </form>
