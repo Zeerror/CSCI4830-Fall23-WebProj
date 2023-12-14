@@ -1,0 +1,169 @@
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        html {height: fit-content;}
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://drive.google.com/uc?export=view&id=1ML_AU0ud6ohj6nkwocrIJ8FTiGeHTMWP");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: grey;
+            background-position: center;
+            text-align: center;
+            background-blend-mode: soft-light;
+            height: 100%;
+            margin: 0px;
+        }
+        h2 {
+            font-size: 52px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-shadow: black 0px 0px 3px;
+        }
+        .container {
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            margin: 0px;
+            background: #ffffff;
+            color: #333;
+            padding-top: 12px;
+            min-height: 50px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #333;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+        header ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+        header li {
+            float: right;
+            padding-right: 24px;
+            margin-left: -8px;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+            padding-left: 24px;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        form {
+            position: relative;
+            min-width: 250px;
+            min-height: 200px;
+            width: 20%;
+            height: 65%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #e8491d;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding-top: 0px;
+        }
+        h3 {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            display: block;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            text-align: bold;
+            color: #333;
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: auto;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        input[type="submit"] {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            background-color: #e8491d;
+            color: white;
+            width: 150px;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 2%;
+            min-height: 35px;
+        }
+	        
+        input[type="submit"]:hover {
+            background-color: rgb(240, 138, 108);
+        }
+        div {
+            position: static;
+            bottom: 0;
+        }
+        p.error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">The Leftovers - Create Account</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="landingPage.html">Home</a></li>
+                    <li><a href="/webproject/simpleInsertHB.html">Make Reservation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+	<h2>Create an Employee Account</h2>
+    <form action="/webproject/CreateAccount" method="POST">
+        <h3 for="newUsername">Username:</h3>
+        <input type="text" id="newUsername" name="newUsername" required><br>
+        <h3 for="newEmail">Email:</h3>
+        <input type="text" id="newEmail" name="newEmail" required><br>
+        <h3 for="newPassword">Password:</h3>
+        <input type="password" id="newPassword" name="newPassword" required><br>
+        <h3 for="confirmPassword">Confirm Password:</h3>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+        <div style="height: 35px;"></div>
+        <input type="hidden" name="role" value="EMP"><!--This indicates that it is an employee account-->
+        <input type="submit" value="Create Account">
+    </form>
+    <div style="height: 40px;"></div>
+</body>
+</html>

@@ -28,6 +28,8 @@ public class CreateAccount extends HttpServlet {
         String newEmail = request.getParameter("newEmail");
         String newPassword = request.getParameter("newPassword");
         String confirmPassword = request.getParameter("confirmPassword");
+        String role = request.getParameter("role");
+        
         //Confirm that passwords match
         if (!newPassword.equals(confirmPassword)) {
             response.setContentType("text/html");
@@ -42,20 +44,26 @@ public class CreateAccount extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
-
+            // Information about the account
             PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
             preparedStatement.setString(1, newUsername);
             preparedStatement.setString(2, newPassword);
             preparedStatement.setString(3, newEmail);
-            // Default role will be "CUST" as they will be employees
-            preparedStatement.setString(4, "CUST"); 
-
+            
+            // Logic to handle the type of account it is
+            if (role.equals("EMP")) {
+                preparedStatement.setString(4, "EMP");
+            } else {
+                preparedStatement.setString(4, "CUST");
+            }
+            
             int rowsAffected = preparedStatement.executeUpdate();
 
             if (rowsAffected > 0) {
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                out.println("<h3>Account created successfully!</h3>");
+                System.out.println("Account Created Successfully!!");
+                response.sendRedirect("dashboard.html");
             } else {
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
