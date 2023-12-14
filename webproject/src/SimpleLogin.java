@@ -27,7 +27,7 @@ public class SimpleLogin extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
+        
         PrintWriter out = response.getWriter();
 
         String username = request.getParameter("username");
@@ -67,7 +67,6 @@ public class SimpleLogin extends HttpServlet {
             }
         }
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);

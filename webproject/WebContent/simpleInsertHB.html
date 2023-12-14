@@ -158,10 +158,9 @@
 	    <h2>Input Reservation Details</h2>
 	    <form action="SimpleInsertHB" method="POST">
 	        <h3 for="name">Name:</h3>
-	        <input type="text" id="name" name="name" required><br>
-	
-	        <h3 for="tableNumber">Number of Guests:</h3>
-	        <input type="text" id="tableNumber" name="tableNumber" required><br>
+			<input type="text" id="name" name="customerName" required><br>	
+	        <h3 for="numberOfGuests">Number of Guests:</h3>
+	        <input type="text" id="numberOfGuests" name="numberOfGuests" required><br>
 	        
 	        <h3 for="date">Date:</h3>
 	        <input type="date" id="date" name="date" required>
@@ -170,8 +169,19 @@
         	<select id="time" name="time" required>
             <option value="" selected disabled>Select a time</option>
             <option value="09:00:00">09:00 AM</option>
+            <option value="09:30:00">09:30 AM</option>
+            <option value="10:00:00">10:00 AM</option>
+            <option value="10:30:00">10:30 AM</option>
+            <option value="11:00:00">11:00 AM</option>
+            <option value="11:30:00">11:30 AM</option>
             <option value="12:00:00">12:00 PM</option>
+            <option value="12:30:00">12:30 PM</option>            
+            <option value="13:00:00">01:00 PM</option>
+            <option value="13:30:00">01:30 PM</option>
+            <option value="14:00:00">02:00 PM</option>
+            <option value="14:30:00">02:30 PM</option>
             <option value="15:00:00">03:00 PM</option>
+            <option value="15:30:00">03:30 PM</option>
         	</select>
 	        
 	        <div style="height: 35px;"></div>
