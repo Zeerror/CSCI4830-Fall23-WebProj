@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
     <style>
-        html {height: 100%;}
+        html {height: fit-content;}
         body {
             font-family: Arial, sans-serif;
             background-image: url("https://drive.google.com/uc?export=view&id=1_Nq_EjduV0C0uvIteGLedwWxanzMTT7g");
@@ -79,7 +79,7 @@
         form {
             position: relative;
             min-width: 250px;
-            min-height: 300px;
+            min-height: 200px;
             width: 20%;
             height: 65%;
             margin: auto;
@@ -88,6 +88,7 @@
             border: 2px solid #e8491d;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding-top: 0px;
         }
         h3 {
             font-family: Arial, sans-serif;
@@ -106,6 +107,7 @@
             margin-bottom: 10px;
             font-size: 14px;
         }
+        
         input[type="submit"] {
             position: absolute;
             right: 12px;
@@ -118,7 +120,10 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
+            height: 2%;
+            min-height: 35px;
         }
+	        
         input[type="submit"]:hover {
             background-color: rgb(240, 138, 108);
         }
@@ -156,6 +161,7 @@
         <h3 for="confirmPassword">Confirm Password:</h3>
         <input type="password" id="confirmPassword" name="confirmPassword" required><br>
 
+	    <div style="height: 35px;"></div>
         <input type="submit" value="Create Account">
     </form>
     <div style="height: 40px;"></div>
