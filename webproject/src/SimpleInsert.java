@@ -91,7 +91,7 @@ public class SimpleInsert extends HttpServlet {
                 preparedStatement.setString(5, "GUEST");
                 preparedStatement.executeUpdate();
                 System.out.println("Guest reservation successful");
-                response.sendRedirect("dashboard.html");
+                response.sendRedirect("landingPage.html");
             } catch (SQLException e) {
                 e.printStackTrace();
                 response.getWriter().println("Failed to make a guest reservation");
