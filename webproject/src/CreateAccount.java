@@ -53,8 +53,8 @@ public class CreateAccount extends HttpServlet {
             // Logic to handle the type of account it is
             if (role.equals("EMP")) {
                 preparedStatement.setString(4, "EMP");
-            } else {
-                preparedStatement.setString(4, "CUST");
+            } else{
+            	preparedStatement.setString(4, "CUST");
             }
             
             int rowsAffected = preparedStatement.executeUpdate();
