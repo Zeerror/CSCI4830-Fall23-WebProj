@@ -46,6 +46,7 @@ public class SimpleInsert extends HttpServlet {
                 PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
                 // Sets the name to customerName column.
                 preparedStatement.setString(1, name);
+                // Sets the time in the reservationTime column.
                 preparedStatement.setDate(2, date);
                 // Sets the time in the reservationTime column.
                 preparedStatement.setTime(3, time);
@@ -57,6 +58,7 @@ public class SimpleInsert extends HttpServlet {
                 preparedStatement.executeUpdate();
 
                 response.getWriter().println("Reservation successful");
+                response.sendRedirect("dashboard.html");
             } catch (SQLException e) {
                 e.printStackTrace();
                 response.getWriter().println("Failed to make a reservation");
@@ -74,22 +76,22 @@ public class SimpleInsert extends HttpServlet {
             }
         } else {
             // User is not logged in --> Continue as Guest
-            try {
+        	try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(url, user, password);
                 Date date = Date.valueOf(dateString);
                 Time time = Time.valueOf(timeString);
-
-                String insertSql = "INSERT INTO reservations (customerName, reservationDate, reservationTime, numberOfGuests) VALUES (?, ?, ?, ?)";
+                String insertSql = "INSERT INTO reservations (customerName, reservationDate, reservationTime, numberOfGuests, customerUsername) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
                 preparedStatement.setString(1, name);
                 preparedStatement.setDate(2, date);
                 preparedStatement.setTime(3, time);
                 preparedStatement.setInt(4, numberOfGuests);
-                preparedStatement.setString(5, "Guest");
+                //Marking customerUsername Column in db table as GUEST
+                preparedStatement.setString(5, "GUEST");
                 preparedStatement.executeUpdate();
-
-                response.getWriter().println("Guest reservation successful");
+                System.out.println("Guest reservation successful");
+                response.sendRedirect("landingPage.html");
             } catch (SQLException e) {
                 e.printStackTrace();
                 response.getWriter().println("Failed to make a guest reservation");

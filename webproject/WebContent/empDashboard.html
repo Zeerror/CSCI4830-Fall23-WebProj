@@ -10,7 +10,7 @@
 		}
         body {
             font-family: Arial, sans-serif;
-            background: url('https://drive.google.com/uc?export=view&id=1VLBL0nj6RcWMflVoPRAKxnXgiTehcgTS') no-repeat center center/cover;
+            background: url('https://drive.google.com/uc?export=view&id=1weT5NoEs97D2UrDwp85BWTZgWT6CoWS3') no-repeat center center/cover;
             margin: 0;
             padding: 0;
             height: 100%;
@@ -33,7 +33,7 @@
             min-height: 50px;
             border-bottom: #e8491d 3px solid;
         }
-        header a, .li {
+        header a {
             color: #333;
             text-decoration: none;
             text-transform: uppercase;
@@ -46,7 +46,7 @@
             list-style: none;
             overflow: hidden;
         }
-        header li, .li {
+        header li {
             float: right;
             padding-right: 24px;
             margin-left: -8px;
@@ -68,7 +68,7 @@
             color: #e8491d;
             font-weight: bold;
         }
-        header a:hover, .li:hover {
+        header a:hover {
             color: #e8491d;
             font-weight: bold;
         }
@@ -109,10 +109,10 @@
 		}
 		
 		.containedButton {
-            background-color: transparent;
+            background-color: rgb(237, 108, 71);
             text-decoration: none;
             color: white;
-            width: fit-content;
+            width: 125px;
             padding: 10px 30px;
             border: 3px solid #e8491d;
             border-radius: 5px;
@@ -123,36 +123,17 @@
 		.button:hover, .containedButton:hover {
             background-color: rgb(237, 108, 71);
 		}
-		
-		.li {
-			float: left;
-			background-color: transparent;
-			border: none;
-		}
-		
-		form {
-			padding: 20px;
-		}
-		
-		.formButton {
-            float: right;
-            margin-top: 10px;
-            padding: 0px !important;
-            margin-left: -5px;
-		}
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div id="branding">
-                <h1><span class="highlight">The Leftovers</span></h1>
+                <h1><span class="highlight">The Leftovers - Admin Dashboard</span></h1>
             </div>
-			<form class="formButton" action="SimpleSearchHB" method="POST">
-		        <input class="li" type="submit" value="My Reservations">
-	    	</form>
             <nav>
                 <ul>
+                    <li><a href="/webproject/simpleSearchHB.html">Cancel Reservation</a></li>
                     <li><a href="/webproject/makeAReservation.html">Make a Reservation</a></li>
                 </ul>
             </nav>
@@ -165,11 +146,13 @@
             <p>Explore and enjoy our services!</p>
             <nav class="buttonCont">
 				<a class="button" href="/webproject/makeAReservation.html">Make a Reservation</a>
-            	<a class="button" href="/webproject/SimpleLogout">Logout</a>
 			</nav>
-			<form action="SimpleSearchHB" method="POST">
-		        <input class="containedButton" type="submit" value="My Reservations">
-	    	</form>
+			<nav class="buttonCont">
+				<a class="containedButton" href="/webproject/simpleSearchHB.html">Cancel Reservation</a>
+			</nav>
+				<nav class="buttonCont">
+            	<a class="button" href="/webproject/SimpleLogout">Logout</a>
+        	</nav>
         </div>
     </section>
 </body>
