@@ -61,9 +61,13 @@ public class CreateAccount extends HttpServlet {
 
             if (rowsAffected > 0) {
                 response.setContentType("text/html");
-                PrintWriter out = response.getWriter();
+                //PrintWriter out = response.getWriter();
                 System.out.println("Account Created Successfully!!");
-                response.sendRedirect("dashboard.html");
+                if (role.equals("EMP")) {
+                	response.sendRedirect("empDashboard.html");
+                }else{
+                	response.sendRedirect("dashboard.html");
+                }
             } else {
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
