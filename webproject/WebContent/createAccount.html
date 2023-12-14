@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Create Account</title>
     <style>
         html {height: 100%;}
         body {
             font-family: Arial, sans-serif;
-            background-image: url("https://drive.google.com/uc?export=view&id=1WNK8F-z3gbqvoPYpT-hOtVlE3oNAANSS");
+            background-image: url("https://drive.google.com/uc?export=view&id=1_Nq_EjduV0C0uvIteGLedwWxanzMTT7g");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: grey;
@@ -29,8 +29,8 @@
             margin: auto;
             overflow: hidden;
         }
-		header {
-			margin: 0px;
+        header {
+            margin: 0px;
             background: #ffffff;
             color: #333;
             padding-top: 12px;
@@ -59,7 +59,7 @@
         }
         header #branding {
             float: left;
-			padding-left: 24px;
+            padding-left: 24px;
         }
         header #branding h1 {
             margin: 0;
@@ -89,7 +89,6 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         h3 {
             font-family: Arial, sans-serif;
             text-align: left;
@@ -100,7 +99,6 @@
             text-align: bold;
             color: #333;
         }
-
         input[type="text"], input[type="password"] {
             width: 90%;
             padding: 10px;
@@ -108,7 +106,6 @@
             margin-bottom: 10px;
             font-size: 14px;
         }
-
         input[type="submit"] {
             position: absolute;
             right: 12px;
@@ -122,16 +119,13 @@
             cursor: pointer;
             font-size: 14px;
         }
-
         input[type="submit"]:hover {
             background-color: rgb(240, 138, 108);
         }
-
         div {
             position: static;
             bottom: 0;
         }
-
         p.error-message {
             color: red;
         }
@@ -141,26 +135,28 @@
     <header>
         <div class="container">
             <div id="branding">
-                <h1><span class="highlight">The Leftovers - Login</span></h1>
+                <h1><span class="highlight">The Leftovers - Create Account</span></h1>
             </div>
             <nav>
                 <ul>
                     <li><a href="landingPage.html">Home</a></li>
                     <li><a href="/webproject/simpleInsertHB.html">Make Reservation</a></li>
-                    <li><a href="/webproject/createAccount.html">Create Account</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <h2>Account Login</h2>
-    <form action="/webproject/SimpleLogin" method="POST">
-        <h3 for="username">Username:</h3>
-        <input type="text" id="username" name="username" required><br>
+    <h2>Create an Account</h2>
+    <form action="/webproject/CreateAccount" method="POST">
+        <h3 for="newUsername">Username:</h3>
+        <input type="text" id="newUsername" name="newUsername" required><br>
+		<h3 for="newEmail">Email:</h3>
+        <input type="text" id="newEmail" name="newEmail" required><br>
+        <h3 for="newPassword">Password:</h3>
+        <input type="password" id="newPassword" name="newPassword" required><br>
+        <h3 for="confirmPassword">Confirm Password:</h3>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
 
-        <h3 for="password">Password:</h3>
-        <input type="password" id="password" name="password" required><br>
-
-        <input type="submit" value="LOGIN">
+        <input type="submit" value="Create Account">
     </form>
     <div style="height: 40px;"></div>
 </body>

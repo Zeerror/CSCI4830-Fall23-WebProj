@@ -47,9 +47,11 @@ public class SimpleLogin extends HttpServlet {
             if (rs.next()) {
                 // Authentication successful
                 HttpSession session = request.getSession();
-                session.setAttribute("username", username); // Store the username in the session
+                // Used to store the username in the session
+                session.setAttribute("username", username); 
                 System.out.println("Authentication Successful!!!!!!!!!!");
-                response.sendRedirect("landingPage.html"); // Redirect to landingPage.html or any other page
+                // After logging in will redirect to landingPage.html page
+                response.sendRedirect("landingPage.html"); 
             } else {
                 // Authentication failed
                 out.println("<h2>Login Failed. Invalid username or password.</h2>");

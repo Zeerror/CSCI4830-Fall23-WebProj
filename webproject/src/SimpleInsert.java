@@ -44,6 +44,7 @@ public class SimpleInsert extends HttpServlet {
 
                 String insertSql = "INSERT INTO reservations (customerName, reservationDate, reservationTime, numberOfGuests, customerUsername) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
+                // Sets the name to customerName column.
                 preparedStatement.setString(1, name);
                 preparedStatement.setDate(2, date);
                 // Sets the time in the reservationTime column.
@@ -51,7 +52,8 @@ public class SimpleInsert extends HttpServlet {
                 // Sets the number of guests in numberOfGuests column.
                 preparedStatement.setInt(4, numberOfGuests);
                 // Sets the username to customerUsername column.
-                preparedStatement.setString(5, username); 
+                preparedStatement.setString(5, username);
+                // Updates.
                 preparedStatement.executeUpdate();
 
                 response.getWriter().println("Reservation successful");
@@ -71,7 +73,7 @@ public class SimpleInsert extends HttpServlet {
                 }
             }
         } else {
-            // Guest reservation
+            // User is not logged in --> Continue as Guest
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(url, user, password);
