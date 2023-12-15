@@ -54,10 +54,10 @@ public class SimpleLogin extends HttpServlet {
                 System.out.println("Authentication Successful!!!!!!!!!!");
                 // After logging in will redirect to landingPage.html page
                 role = rs.getString("role");
-                if (role == "CUST") {                	
-                	response.sendRedirect("dashboard.html"); 
+                if (role.equals("EMP")) {                	
+                	response.sendRedirect("empDashboard.html"); 
                 } else {
-                	response.sendRedirect("empDashboard.html");
+                	response.sendRedirect("dashboard.html");
                 }
             } else {
                 // Authentication failed
