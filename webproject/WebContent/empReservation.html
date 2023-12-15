@@ -37,7 +37,7 @@
 	            min-height: 50px;
 	            border-bottom: #e8491d 3px solid;
 	        }
-	        header a {
+	        header a, .li {
 	            color: #333;
 	            text-decoration: none;
 	            text-transform: uppercase;
@@ -50,7 +50,7 @@
 	            list-style: none;
 	            overflow: hidden;
 	        }
-	        header li {
+	        header li, .li {
 	            float: right;
 	            padding-right: 24px;
 	            display: inline;
@@ -71,11 +71,12 @@
 	            color: #e8491d;
 	            font-weight: bold;
 	        }
-	        header a:hover {
+	        header a:hover, .li:hover {
 	            color: #e8491d;
 	            font-weight: bold;
 	        }
-	        form {
+	        
+	        .form1 {
 	            position: relative;
 	            min-width: 250px;
 	            min-height: 200px;
@@ -121,7 +122,7 @@
 	            height: 30px;
 			}
 			
-	        input[type="submit"] {
+	        .reserve {
 	            position: absolute;
 	            right: 12px;
 	            bottom: 12px;
@@ -137,7 +138,7 @@
 	            min-height: 35px;
 	        }
 	
-	        input[type="submit"]:hover {
+	        .reserve:hover {
 	            background-color: rgb(240, 138, 108);
 	        }
 	
@@ -149,6 +150,22 @@
 	        p.error-message {
 	            color: red;
 	        }
+	        .li {
+				float: left;
+				background-color: transparent;
+				border: none;
+			}
+			
+			.form2 {
+				padding: 20px;
+			}
+			
+			.formButton {
+	            float: right;
+	            margin-top: 10px;
+	            padding: 0px !important;
+	            margin-left: -5px;
+			}
 	    </style>
 	</head>
 	<body>
@@ -160,13 +177,15 @@
 		        <nav>
 		            <ul>
 		                <li><a href="empDashboard.html">Home</a></li>
-		                <li><a href="/webproject/simpleSearchHB.html">My Reservations</a></li>
 		            </ul>
 		        </nav>
+		        <form class="formButton form2" action="SimpleSearchHB" method="POST">
+		        	<input class="li" type="submit" value="My Reservations">
+	    		</form>
 		    </div>
 		</header>
 	    <h2>Input Reservation Details</h2>
-	    <form action="SimpleInsertHB" method="POST">
+	    <form class="form1" action="SimpleInsertHB" method="POST">
 	        <h3 for="name">Customer Name:</h3>
 			<input type="text" id="name" name="customerName" required><br>	
 	        <h3 for="numberOfGuests">Number of Guests:</h3>
@@ -196,7 +215,7 @@
 	        
 	        <div style="height: 35px;"></div>
 	        
-	        <input type="submit" value="RESERVE">
+	        <input class="reserve" type="submit" value="RESERVE">
 	    </form>
 	    <div style="height: 40px"></div>
 	</body>

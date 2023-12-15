@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/CreateAccount")
 public class CreateAccount extends HttpServlet {
@@ -49,7 +50,9 @@ public class CreateAccount extends HttpServlet {
             preparedStatement.setString(1, newUsername);
             preparedStatement.setString(2, newPassword);
             preparedStatement.setString(3, newEmail);
-            
+            HttpSession session = request.getSession();
+            // Used to store the username in the session
+            session.setAttribute("username", newUsername);
             // Logic to handle the type of account it is
             if (role.equals("EMP")) {
                 preparedStatement.setString(4, "EMP");
