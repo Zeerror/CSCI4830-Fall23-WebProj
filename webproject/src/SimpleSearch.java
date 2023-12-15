@@ -18,6 +18,7 @@ public class SimpleSearch extends HttpServlet {
     static String user = "hramirez_remote";
     static String password = "csci4830";
     static Connection connection = null;
+    private String home = "dashboard.html";
 
     public SimpleSearch() {
         super();
@@ -29,7 +30,7 @@ public class SimpleSearch extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String keyword = SimpleLogin.username;
-        //String role = SimpleLogin.role;
+        String role = SimpleLogin.role;
         StringBuilder searchResults = new StringBuilder();
         
         System.out.println("USERNAME: " + keyword);
@@ -38,14 +39,21 @@ public class SimpleSearch extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
 
+            System.out.println("ROLE: " + role);
             String selectSQL;
-            //if (role == "EMP") {
-            //	selectSQL = "SELECT * FROM reservations";
-            //} else {            	
+            if (role.equals("EMP")) {
+            	selectSQL = "SELECT * FROM reservations";
+            	home = "empDashboard.html";
+            } else {            	
             	selectSQL = "SELECT * FROM reservations WHERE customerUsername = ?";
-            //}
+            	home = "dashboard.html";
+            }
+            System.out.println("SELECT QUERY: " + selectSQL);
 			PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, keyword);
+			
+			if (role == "CUST") {				
+				preparedStatement.setString(1, keyword);
+			}
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -225,7 +233,7 @@ public class SimpleSearch extends HttpServlet {
                     + "            </div>"
                     + "            <nav>"
                     + "                <ul>"
-                    + "                    <li><a href=\"dashboard.html\">Home</a></li>"
+                    + "                    <li><a href=\"" + home + "\">Home</a></li>"
                     + "                    <li><a href=\"/webproject/makeAReservation.html\">Make Reservation</a></li>"
                     + "                </ul>"
                     + "            </nav>"

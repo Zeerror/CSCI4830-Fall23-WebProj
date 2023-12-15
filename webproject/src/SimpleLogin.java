@@ -21,6 +21,7 @@ public class SimpleLogin extends HttpServlet {
     static String password = "csci4830";
     static Connection connection = null;
     public static String username = "";
+    public static String role = "";
 
     public SimpleLogin() {
         super();
@@ -49,10 +50,15 @@ public class SimpleLogin extends HttpServlet {
                 // Authentication successful
                 HttpSession session = request.getSession();
                 // Used to store the username in the session
-                session.setAttribute("username", username); 
+                session.setAttribute("username", username);
                 System.out.println("Authentication Successful!!!!!!!!!!");
                 // After logging in will redirect to landingPage.html page
-                response.sendRedirect("dashboard.html"); 
+                role = rs.getString("role");
+                if (role == "CUST") {                	
+                	response.sendRedirect("dashboard.html"); 
+                } else {
+                	response.sendRedirect("empDashboard.html");
+                }
             } else {
                 // Authentication failed
                 out.println("<h2>Login Failed. Invalid username or password.</h2>");
