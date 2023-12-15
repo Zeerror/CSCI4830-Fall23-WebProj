@@ -30,14 +30,16 @@ public class SimpleSearch extends HttpServlet {
 
         String keyword = SimpleLogin.username;
         StringBuilder searchResults = new StringBuilder();
+        
+        System.out.println("USERNAME: " + keyword);
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
 
-            String selectSQL = "SELECT * FROM reservations WHERE customerUsername LIKE ?";
+            String selectSQL = "SELECT * FROM reservations WHERE customerUsername = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, "%" + keyword + "%");
+            preparedStatement.setString(1, keyword);
 
             ResultSet rs = preparedStatement.executeQuery();
 
