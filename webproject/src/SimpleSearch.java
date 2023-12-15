@@ -19,6 +19,7 @@ public class SimpleSearch extends HttpServlet {
     static String password = "csci4830";
     static Connection connection = null;
     private String home = "dashboard.html";
+    private String res = "makeAReservation.html";
 
     public SimpleSearch() {
         super();
@@ -44,9 +45,11 @@ public class SimpleSearch extends HttpServlet {
             if (role.equals("EMP")) {
             	selectSQL = "SELECT * FROM reservations";
             	home = "empDashboard.html";
+            	res = "empReservation.html";
             } else {            	
             	selectSQL = "SELECT * FROM reservations WHERE customerUsername = ?";
             	home = "dashboard.html";
+            	res = "makeAReservation.html";
             }
             System.out.println("SELECT QUERY: " + selectSQL);
 			PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
@@ -234,7 +237,7 @@ public class SimpleSearch extends HttpServlet {
                     + "            <nav>"
                     + "                <ul>"
                     + "                    <li><a href=\"" + home + "\">Home</a></li>"
-                    + "                    <li><a href=\"/webproject/makeAReservation.html\">Make Reservation</a></li>"
+                    + "                    <li><a href=\"/webproject/"+ res +"\">Make Reservation</a></li>"
                     + "                </ul>"
                     + "            </nav>"
                     + "        </div>" +
