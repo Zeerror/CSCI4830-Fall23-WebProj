@@ -29,6 +29,7 @@ public class SimpleSearch extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String keyword = SimpleLogin.username;
+        //String role = SimpleLogin.role;
         StringBuilder searchResults = new StringBuilder();
         
         System.out.println("USERNAME: " + keyword);
@@ -37,8 +38,13 @@ public class SimpleSearch extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
 
-            String selectSQL = "SELECT * FROM reservations WHERE customerUsername = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+            String selectSQL;
+            //if (role == "EMP") {
+            //	selectSQL = "SELECT * FROM reservations";
+            //} else {            	
+            	selectSQL = "SELECT * FROM reservations WHERE customerUsername = ?";
+            //}
+			PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
             preparedStatement.setString(1, keyword);
 
             ResultSet rs = preparedStatement.executeQuery();

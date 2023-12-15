@@ -26,6 +26,10 @@
 			height: 100%;
 		}
         
+        header h1 {
+			text-shadow: none;
+		}
+        
         header {
             background: #ffffff;
             color: #333;
@@ -33,7 +37,7 @@
             min-height: 50px;
             border-bottom: #e8491d 3px solid;
         }
-        header a {
+        header a, .li {
             color: #333;
             text-decoration: none;
             text-transform: uppercase;
@@ -68,7 +72,7 @@
             color: #e8491d;
             font-weight: bold;
         }
-        header a:hover {
+        header a:hover, .li:hover{
             color: #e8491d;
             font-weight: bold;
         }
@@ -83,7 +87,13 @@
         }
         .landing p {
             font-size: 1.5em;
+	        text-shadow: black 0px 0px 3px;
         }
+        
+        h1 {
+	        text-shadow: black 0px 0px 3px;
+		}
+		
         footer {
 			height: 10px;
             margin-top: 12px;
@@ -109,19 +119,36 @@
 		}
 		
 		.containedButton {
-            background-color: rgb(237, 108, 71);
+            background-color: transparent;
             text-decoration: none;
             color: white;
-            width: 125px;
+            width: fit-content;
             padding: 10px 30px;
             border: 3px solid #e8491d;
             border-radius: 5px;
             cursor: pointer;
+	        text-shadow: black 0px 0px 3px;
             font-size: 20px;
 		}
 		
 		.button:hover, .containedButton:hover {
             background-color: rgb(237, 108, 71);
+		}
+		.li {
+			float: left;
+			background-color: transparent;
+			border: none;
+		}
+		
+		form {
+			padding: 20px;
+		}
+		
+		.formButton {
+            float: right;
+            margin-top: 10px;
+            padding: 0px !important;
+            margin-left: -5px;
 		}
     </style>
 </head>
@@ -133,10 +160,13 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="/webproject/simpleSearchHB.html">Cancel Reservation</a></li>
-                    <li><a href="/webproject/makeAReservation.html">Make a Reservation</a></li>
+                    <li><a href="/webproject/SimpleLogout">Logout</a></li>
+                    <li><a href="/webproject/makeAReservation.html">Enter a Reservation</a></li>
                 </ul>
             </nav>
+            <form class="formButton" action="SimpleSearchHB" method="POST">
+		        <input class="li" type="submit" value="Manage Reservations">
+	    	</form>
         </div>
     </header>
 
@@ -145,14 +175,11 @@
             <h1>Reserve Your Seats</h1>
             <p>Explore and enjoy our services!</p>
             <nav class="buttonCont">
-				<a class="button" href="/webproject/makeAReservation.html">Make a Reservation</a>
+				<a class="button" href="/webproject/makeAReservation.html">Enter a Reservation</a>
 			</nav>
-			<nav class="buttonCont">
-				<a class="containedButton" href="/webproject/simpleSearchHB.html">Cancel Reservation</a>
-			</nav>
-				<nav class="buttonCont">
-            	<a class="button" href="/webproject/SimpleLogout">Logout</a>
-        	</nav>
+			<form action="SimpleSearchHB" method="POST">
+		        <input class="containedButton" type="submit" value="My Reservations">
+	    	</form>
         </div>
     </section>
 </body>
