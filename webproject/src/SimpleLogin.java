@@ -20,6 +20,7 @@ public class SimpleLogin extends HttpServlet {
     static String user = "hramirez_remote";
     static String password = "csci4830";
     static Connection connection = null;
+    public static String username = "";
 
     public SimpleLogin() {
         super();
@@ -30,7 +31,7 @@ public class SimpleLogin extends HttpServlet {
         
         PrintWriter out = response.getWriter();
 
-        String username = request.getParameter("username");
+        username = request.getParameter("username");
         String userpassword = request.getParameter("password");
 
         try {
