@@ -51,7 +51,7 @@ public class SimpleSearch extends HttpServlet {
             System.out.println("SELECT QUERY: " + selectSQL);
 			PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
 			
-			if (role == "CUST") {				
+			if (role.equals("CUST")) {				
 				preparedStatement.setString(1, keyword);
 			}
 
