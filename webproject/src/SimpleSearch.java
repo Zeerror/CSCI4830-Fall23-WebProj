@@ -49,13 +49,14 @@ public class SimpleSearch extends HttpServlet {
                 String time = rs.getString("reservationTime");
                 String guests = rs.getString("numberOfGuests");
 
-                searchResults.append("<div class=\"card\"><div class=\"text\">").append("Date: ").append(date).append(" | ")
-                        .append("Time: ").append(time).append(" | ")
-                        .append("Number of Guests: ").append(guests)
-                        .append("<form action=\"\" method=\"POST\"><input type=\"HIDDEN\""
-                        	+ " name=\"reservationID\" value=\"" + reservationId 
-                        	+ "\"><input class=\"li\" type=\"submit\" value=\"DELETE\"></form>")
-                        .append("</div></div><br>");
+                searchResults.append("<div class=\"card\"><div class=\"text\">")
+                .append("Date: ").append(date).append(" | ")
+                .append("Time: ").append(time).append(" | ")
+                .append("Number of Guests: ").append(guests)
+                .append("<form action=\"DeleteReservations\" method=\"POST\">")
+                .append("<input type=\"hidden\" name=\"reservationID\" value=\"" + reservationId + "\">")
+                .append("<input class=\"li\" type=\"submit\" value=\"DELETE\"></form>")
+                .append("</div></div><br>");
             }
 
             // HTML content to be sent as a response

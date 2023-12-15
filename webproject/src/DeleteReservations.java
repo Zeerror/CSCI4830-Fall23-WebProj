@@ -1,65 +1,46 @@
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-@WebServlet("/SimpleLogin")
-public class SimpleLogin extends HttpServlet {
+@WebServlet("/DeleteReservations")
+public class DeleteReservations extends HttpServlet {
     private static final long serialVersionUID = 1L;
     static String url = "jdbc:mysql://ec2-3-21-27-66.us-east-2.compute.amazonaws.com:3306/myDB";
     static String user = "hramirez_remote";
     static String password = "csci4830";
     static Connection connection = null;
-    public static String username = "";
 
-    public SimpleLogin() {
-        super();
-    }
-    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        PrintWriter out = response.getWriter();
-
-        username = request.getParameter("username");
-        String userpassword = request.getParameter("password");
+        String reservationID = request.getParameter("reservationID");
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
 
-            String selectSQL = "SELECT * FROM users WHERE username = ? AND password = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, userpassword);
+            String deleteSQL = "DELETE FROM reservations WHERE reservationID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL);
+            preparedStatement.setString(1, reservationID);
 
-            ResultSet rs = preparedStatement.executeQuery();
+            int rowsAffected = preparedStatement.executeUpdate();
 
-            if (rs.next()) {
-                // Authentication successful
-                HttpSession session = request.getSession();
-                // Used to store the username in the session
-                session.setAttribute("username", username); 
-                System.out.println("Authentication Successful!!!!!!!!!!");
-                // After logging in will redirect to landingPage.html page
-                response.sendRedirect("dashboard.html"); 
+            if (rowsAffected > 0) {
+                response.getWriter().println("Reservation deleted successfully");
+                response.sendRedirect("/webproject/SimpleSearchHB");
             } else {
-                // Authentication failed
-                out.println("<h2>Login Failed. Invalid username or password.</h2>");
+                response.getWriter().println("Failed to delete reservation");
             }
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            response.getWriter().println("Exception occurred: " + e.getMessage());
         } finally {
             try {
                 if (connection != null) {
@@ -70,6 +51,7 @@ public class SimpleLogin extends HttpServlet {
             }
         }
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
