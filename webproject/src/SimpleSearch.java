@@ -87,7 +87,7 @@ public class SimpleSearch extends HttpServlet {
                     "                html {height: 100%;}"
                     + "        body {"
                     + "            font-family: Arial, sans-serif;"
-                    + "            background-image: url(\"http://drive.google.com/thumbnail?id=1CiuAGBxH0eygLTTMeNvUMK8rlrT3QfPT\");"
+                    + "            background-image: url(\"http://drive.google.com/thumbnail?id=1CiuAGBxH0eygLTTMeNvUMK8rlrT3QfPT&sz=w1000\");"
                     + "            background-size: 100%;"
                     + "            background-color: grey;"
                     + "            background-position: center;"
